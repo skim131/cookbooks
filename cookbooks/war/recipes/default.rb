@@ -21,12 +21,6 @@ elsif not node['war']['deploy']['git']['url'].empty?
     action :run
   end
 
-  cookbook_file ::File.join( ENV['HOME'], '.ssh', 'config' ) do
-    mode 0644
-    user "ubuntu"
-    group "ubuntu"
-  end
-
   case node[:platform]
   when "debian", "ubuntu"
     package "git-core" do
